@@ -1,7 +1,6 @@
 const express = require("express");
 
-const getAllBookmarks = require("../queries/bookmarks");
-const { getAllBookmarks } = require("../queries/bookmarks");
+const { getAllBookmarks, getBookmark, createBookmark } = require("../queries/bookmarks");
 
 const bookmarks = express.Router();
 
@@ -15,6 +14,17 @@ bookmarks.get("/", async (_, response) => {
   }
 
   response.status(200).json(allBookmarks);
+});
+
+bookmarks.get("/:id", async (request, response) => {
+  console.log("GET request to /bookmarks/:id");
+  const bookmark = await getBookmark(request.params.id)
+  response.status(200).json(bookmark)
+});
+
+bookmarks.post("/", async (request, response) => {
+  const bookmark = await createBookmark(request.body);
+  response.status(200).json(bookmark);
 });
 
 module.exports = bookmarks;
