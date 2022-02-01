@@ -10,4 +10,11 @@ const getAllBookmarks = async () => {
   }
 };
 
-module.exports = getAllBookmarks;
+const getBookmark = async () => {
+  
+}
+
+module.exports = {
+  getAllBookmarks,
+  getBookmark
+};

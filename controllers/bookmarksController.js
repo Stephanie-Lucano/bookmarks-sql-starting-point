@@ -1,6 +1,7 @@
 const express = require("express");
 
 const getAllBookmarks = require("../queries/bookmarks");
+const { getAllBookmarks } = require("../queries/bookmarks");
 
 const bookmarks = express.Router();
 
