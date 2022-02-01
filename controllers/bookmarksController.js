@@ -8,7 +8,7 @@ bookmarks.get("/", async (_, response) => {
   console.log("GET request to /bookmarks");
   const allBookmarks = await getAllBookmarks();
   if (allBookmarks.length === 0) {
-    res.status(500).json({ error: "server error" });
+    response.status(500).json({ error: "server error" });
 
     return;
   }
